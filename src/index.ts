@@ -1,7 +1,7 @@
 import { Client, Events, GatewayIntentBits } from "discord.js";
 import dotenv from "dotenv";
 
-import { sendYesNoQuestion } from "./send-message";
+import { sendYesNoQuestion } from "./poll-service";
 
 dotenv.config();
 
@@ -19,6 +19,6 @@ setTimeout(async () => {
   await sendYesNoQuestion({
     client: client,
     channelId: "840044499483885573",
-    question: "Good Morning. Brunch at the office—Yes or No? 😊",
+    question: "Good Morning.\nBrunch at the office—Yes or No? 😊",
   });
 }, 5000);
