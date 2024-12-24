@@ -41,8 +41,7 @@ export async function sendYesNoQuestion(params: SendQuestionParams) {
 
     const collector = pollMessage.createMessageComponentCollector({
       componentType: ComponentType.Button,
-      // time: 2 * 60 * 60 * 1000,
-      time: 30 * 1000,
+      time: 2 * 60 * 60 * 1000, // after 2 hours
     });
 
     collector.on("collect", async (interaction) => {
