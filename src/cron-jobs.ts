@@ -9,7 +9,7 @@ export function scheduleBrunchPoll(client: Client) {
     async () => {
       await sendYesNoQuestion({
         client: client,
-        channelId: "840044499483885573",
+        channelId: process.env.DISCORD_CHANNEL_ID ?? "",
         question: "Good Morning.\nBrunch at the office—Yes or No? 😊",
       });
     },

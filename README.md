@@ -2,7 +2,7 @@
 
 ## Issue:
 
-For the brunch at the office, users are required to type "Yes" or "No" on a Discord channel. However, this often leads to low engagement and some people forget or skip responding.
+For the brunch at the office, employees are required to type "Yes" or "No" on a Discord channel. However, this often leads to low engagement as some employees forget or skip responding.
 
 ## Solution:
 
@@ -34,10 +34,11 @@ cd discord-poll-db
 npm install
 ```
 
-3. Set up your `.env` file with the following:
+3. Set up your `.env` file with the following (refer to the provided `.example.env` file):
 
 ```bash
 DISCORD_TOKEN=your_discord_bot_token
+DISCORD_CHANNEL_ID=your_discord_channel_id_where_to_ask_poll
 ```
 
 4. Start the bot:

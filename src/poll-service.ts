@@ -125,7 +125,7 @@ export async function displayPollResponses(
         inline: true,
       }
     )
-    .setFooter({ text: "Thanks for participating!" })
+    .setFooter({ text: "Thanks for your response!" })
     .setTimestamp();
 
   const channel = await client.channels.fetch(channelId);
