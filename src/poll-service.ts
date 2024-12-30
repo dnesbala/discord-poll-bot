@@ -7,12 +7,7 @@ import {
   EmbedBuilder,
   TextChannel,
 } from "discord.js";
-
-interface SendQuestionParams {
-  client: Client;
-  channelId: string;
-  question: string;
-}
+import { DisplayMessageParams, SendQuestionParams } from "./query-params";
 
 const responses: Map<string, { yes: Set<string>; no: Set<string> }> = new Map();
 
@@ -125,13 +120,26 @@ export async function displayPollResponses(
         inline: true,
       }
     )
-    .setFooter({ text: "Thanks for your response!" })
+    .setFooter({ text: "Thank you for your response!" })
     .setTimestamp();
 
   const channel = await client.channels.fetch(channelId);
 
   if (channel && channel?.isTextBased() && channel.type === 0) {
     (channel as TextChannel).send({ embeds: [embed] });
+  } else {
+    console.error("Failed to fetch channel or invalid channel type.");
+  }
+}
+
+export async function sendTextMessage(
+  params: DisplayMessageParams
+): Promise<void> {
+  const { client, channelId, message } = params;
+  const channel = await client.channels.fetch(channelId);
+
+  if (channel && channel?.isTextBased()) {
+    (channel as TextChannel).send(message);
   } else {
     console.error("Failed to fetch channel or invalid channel type.");
   }
