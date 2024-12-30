@@ -4,7 +4,6 @@ export type Holiday = {
 };
 
 const holidays: Holiday[] = [
-  { date: "2024-12-30", name: "English New Year's Day" },
   { date: "2025-01-01", name: "English New Year's Day" },
   { date: "2025-03-13", name: "Holi" },
   { date: "2025-05-01", name: "Labours Day" },
