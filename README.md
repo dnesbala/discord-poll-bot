@@ -16,6 +16,7 @@ The **Discord Poll DB** bot automates the process by regularly reminding users o
 - **Simple Voting**: Users can vote with a button click ("Yes" or "No").
 - **Poll Results**: After a set time (2 hours), the bot displays the list of users who voted "Yes" or "No".
 - **Recurring Polling**: Polling happens from Monday to Friday at 7 AM (Nepal Time).
+- **Holiday Integration**: Automatically skips polling on holidays, sending a friendly holiday message instead (e.g., "🎉 Today is [Holiday Name]. Enjoy your holiday!").
 
 ---
 
