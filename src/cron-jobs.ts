@@ -4,25 +4,26 @@ import { Client } from "discord.js";
 import { sendTextMessage, sendYesNoQuestion } from "./poll-service";
 import { checkHoliday } from "./holiday-service";
 
-export async function scheduleBrunchPoll(client: Client) {
+export function scheduleBrunchPoll(client: Client) {
   cron.schedule(
-    "0 7 * * 1-5", // At 7:00 AM from Monday to Friday
+    "45 7 * * 1-5", // At 7:00 AM from Monday to Friday
     async () => {
       const holiday = checkHoliday();
-      if (!holiday) {
+
+      if (holiday) {
         await sendTextMessage({
           client: client,
           channelId: process.env.DISCORD_CHANNEL_ID ?? "",
           message: `🎉 Today is ${holiday!.name}. Enjoy your holiday!`,
         });
-        return;
+      } else {
+        await sendYesNoQuestion({
+          client: client,
+          channelId: process.env.DISCORD_CHANNEL_ID ?? "",
+          question:
+            "Good Morning, @everyone\nBrunch at the office—Yes or No? 🍚",
+        });
       }
-
-      await sendYesNoQuestion({
-        client: client,
-        channelId: process.env.DISCORD_CHANNEL_ID ?? "",
-        question: "Good Morning, @everyone\nBrunch at the office—Yes or No? 🍚",
-      });
     },
     { timezone: "Asia/Kathmandu" }
   );
