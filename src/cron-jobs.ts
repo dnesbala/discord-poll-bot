@@ -6,7 +6,7 @@ import { checkHoliday } from "./holiday-service";
 
 export function scheduleBrunchPoll(client: Client) {
   cron.schedule(
-    "45 7 * * 1-5", // At 7:00 AM from Monday to Friday
+    "0 7 * * 1-5", // At 7:00 AM from Monday to Friday
     async () => {
       const holiday = checkHoliday();
 
